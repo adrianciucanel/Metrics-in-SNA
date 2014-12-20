@@ -9,10 +9,10 @@ import com.restfb.types.User;
 
 public interface IConnector {
 
-	User GetUserDetails(String username);
+	User GetUserDetails(String accesToken);
 
-	Connection<User> GetUserFriends(String username);
+	Connection<User> GetUserFriends(String accesToken);
 
-	Connection<Thread> GetUserInbox(String username);
+	Connection<Thread> GetUserInbox(String accesToken);
 
 }
