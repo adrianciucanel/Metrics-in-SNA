@@ -19,7 +19,10 @@
 	</bean>
 
 	<!-- JSON mapper -->
-	<bean id="jsonProvider" class="com.wordnik.swagger.jaxrs.json.JacksonJsonProvider" />
+	<bean id="jsonProvider" class="org.codehaus.jackson.jaxrs.JacksonJsonProvider" />
+	
+	<!-- Resource classes for JAXRS Server Factory Bean. -->
+	<bean id="status" class="com.fii.taip.msn.api.UserFacebookTokenApi"/>
 
 	<!-- Define CXF beans. -->
 	<bean class="org.apache.cxf.jaxrs.JAXRSServerFactoryBean"
@@ -28,7 +31,7 @@
 		<property name="serviceBeans">
 			<list>
 				<!-- resource classes -->
-				
+				<ref bean="status"/>
 			</list>
 		</property>
 		<property name="providers">
