@@ -3,36 +3,57 @@ package com.fii.taip.msn.dbmodel;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.fii.taip.msn.dto.FacebookConversationDto;
-import com.fii.taip.msn.dto.FacebookUserDto;
+import org.springframework.data.annotation.TypeAlias;
 
+import com.restfb.types.Message;
+import com.restfb.types.NamedFacebookType;
+import com.restfb.types.Thread;
+
+@TypeAlias("Conversation")
 public class Conversation {
-	private User owner;
-	private List<User> participants;
+	private List<FacebookMessage> messages;
 
-	public Conversation(User owner, FacebookConversationDto dto) {
-		this.owner = owner;
-		List<User> participants = new ArrayList<User>();
-		for (FacebookUserDto userDto : dto.getParticipants()) {
-			participants.add(new User(userDto));
-		}
-		this.participants = participants;
+	private String ownerId;
+	
+	private List<String> toList;
+	
+	public Conversation(){
+		//default used by MongoDB
 	}
 	
-	public User getOwner() {
-		return owner;
+	public String getOwnerId() {
+		return ownerId;
 	}
 
-	public void setOwner(User owner) {
-		this.owner = owner;
+	public void setOwnerId(String ownerId) {
+		this.ownerId = ownerId;
 	}
 
-	public List<User> getParticipants() {
-		return participants;
+	public List<String> getToList() {
+		return toList;
 	}
 
-	public void setParticipants(List<User> participants) {
-		this.participants = participants;
+	public void setToList(List<String> toList) {
+		this.toList = toList;
 	}
 
+	public Conversation(Thread thread,FacebookUser user){
+		this.ownerId=user.getId();
+		messages=new ArrayList<FacebookMessage>();
+		for(Message message : thread.getComments()){
+			messages.add(new FacebookMessage(message));
+		}	
+		toList=new ArrayList<String>();
+		for(NamedFacebookType threadReceiver: thread.getTo()){
+			toList.add(threadReceiver.getId());
+		}
+	}
+	
+	public List<FacebookMessage> getMessages() {
+		return messages;
+	}
+
+	public void setMessages(List<FacebookMessage> messages) {
+		this.messages = messages;
+	} 
 }

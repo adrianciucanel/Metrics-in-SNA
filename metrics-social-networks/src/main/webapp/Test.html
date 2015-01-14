@@ -40,6 +40,7 @@
       statusChangeCallback(response);
     });
   }
+  
 
   window.fbAsyncInit = function() {
   FB.init({
@@ -90,12 +91,12 @@
   
   function postAccessToken( e ){ 
 	  $.ajax({ 
-		  url: 'jsonservlet',
-		  dataType: 'text', 
+		  url: 'http://localhost:8080/metrics-social-networks/api/token',
+		  dataType: 'json', 
 		  type: 'post', 
-		  contentType: 'application/x-www-form-urlencoded',
-		  data:  e 
-	  }).done(function() {
+		  contentType: 'application/json',
+		  data: JSON.stringify({ "token": e })
+	  }).done(function(data) {
 	    $( this ).addClass( "done" );
 	  });
 	  }
@@ -113,7 +114,7 @@
   the FB.login() function when clicked.
 -->
 
-<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+<fb:login-button scope="public_profile,email,read_mailbox" onlogin="checkLoginState();">
 </fb:login-button>
 
 <div id="status">

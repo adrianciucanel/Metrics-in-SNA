@@ -1,15 +1,14 @@
 package com.fii.taip.msn.extapi;
 
-import java.util.Dictionary;
-import java.util.List;
+import org.springframework.stereotype.Component;
 
 import com.restfb.Connection;
 import com.restfb.DefaultFacebookClient;
 import com.restfb.FacebookClient;
-import com.restfb.types.User;
 import com.restfb.types.Thread;
+import com.restfb.types.User;
 
-
+@Component
 public class FacebookConnector implements IConnector {
 	
     

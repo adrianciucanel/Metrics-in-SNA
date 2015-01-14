@@ -3,22 +3,15 @@ package com.fii.taip.msn.dbcom;
 import java.util.List;
 
 import com.fii.taip.msn.dbmodel.Conversation;
-import com.fii.taip.msn.dbmodel.User;
-import com.fii.taip.msn.dto.FacebookConversationDto;
+import com.fii.taip.msn.dbmodel.FacebookUser;
+import com.restfb.Connection;
+import com.restfb.types.Thread;
 
 public interface ConversationRepository {
-
-	Conversation create(User owner, FacebookConversationDto dto);
 	
-	List<Conversation> createList(User owner, List<FacebookConversationDto> dto);
+	List<Conversation> insert (FacebookUser owner, Connection<Thread> dtoList);
 	
-	Conversation get(User owner, long id);
+	List<Conversation> get(FacebookUser owner);
 	
-	List<Conversation> getList(User owner);
-	
-	List<Conversation> getList(User owner, User participant);
-	
-	List<Conversation> getList(List<User> participants);
-	
-	List<Conversation> getList(User owner, List<User> participants);
+	List<Conversation> get(FacebookUser owner, FacebookUser participant);
 }

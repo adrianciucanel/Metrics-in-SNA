@@ -1,19 +1,29 @@
 package com.fii.taip.msn.api;
 
-import javax.ws.rs.GET;
+import javax.ws.rs.Consumes;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Response;
 
-import org.springframework.http.HttpStatus;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.fii.taip.msn.dto.FacebookUserTokenDto;
+import com.fii.taip.msn.infrastructure.DataCollector;
 
 @Path("token")
 public class UserFacebookTokenApi {
+	
+	@Autowired
+	private DataCollector collectorService;
 
-	@GET
+	@POST
+	@Consumes({"application/json"})
 	@Produces({"application/json"})
 	@Path("/")
-	public Response status() {
-		return Response.status(202).build();
+	public Response status(FacebookUserTokenDto token) {
+		collectorService.collectData(token);
+		return Response.status(201).entity(token).build();
 	}
+	
 }
