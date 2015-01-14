@@ -7,7 +7,7 @@ import com.fii.taip.msn.dbmodel.FacebookUser;
 import com.restfb.Connection;
 import com.restfb.types.Thread;
 
-public interface ConversationRepository {
+public interface FacebookConversationRepository {
 	
 	List<Conversation> insert (FacebookUser owner, Connection<Thread> dtoList);
 	

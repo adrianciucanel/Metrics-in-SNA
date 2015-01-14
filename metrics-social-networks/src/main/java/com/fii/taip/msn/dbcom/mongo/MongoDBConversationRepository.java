@@ -1,4 +1,4 @@
-package com.fii.taip.msn.dbcom;
+package com.fii.taip.msn.dbcom.mongo;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,13 +7,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.stereotype.Component;
 
+import com.fii.taip.msn.dbcom.FacebookConversationRepository;
 import com.fii.taip.msn.dbmodel.Conversation;
 import com.fii.taip.msn.dbmodel.FacebookUser;
 import com.restfb.Connection;
 import com.restfb.types.Thread;
 
 @Component
-public class MongoDBConversationRepository implements ConversationRepository {
+public class MongoDBConversationRepository implements FacebookConversationRepository {
 
 	@Autowired
 	private MongoOperations operation;

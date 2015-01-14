@@ -1,8 +1,10 @@
 package com.fii.taip.msn.dbcom;
 
+import java.util.List;
+
 import com.fii.taip.msn.dbmodel.FacebookUser;
 
-public interface UserRepository {
+public interface FacebookUserRepository {
 
 	/**
 	 * Create and insert a user in data base.
@@ -13,5 +15,11 @@ public interface UserRepository {
 	 * @return the created user.
 	 */
 	void insertUser(FacebookUser user);
+	
+	/**
+	 * Get all users from DB.
+	 * @return a list which contains all users.
+	 */
+	List<FacebookUser> allUsers();
 
 }
