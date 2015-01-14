@@ -3,9 +3,9 @@ package com.fii.taip.msn.infrastructure;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.fii.taip.msn.dbcom.ConversationRepository;
+import com.fii.taip.msn.dbcom.FacebookConversationRepository;
 import com.fii.taip.msn.dbcom.FacebookTokenRepository;
-import com.fii.taip.msn.dbcom.UserRepository;
+import com.fii.taip.msn.dbcom.FacebookUserRepository;
 import com.fii.taip.msn.dbmodel.FacebookUser;
 import com.fii.taip.msn.dto.FacebookUserTokenDto;
 import com.fii.taip.msn.extapi.IConnector;
@@ -16,10 +16,10 @@ public class DataCollector {
 	private FacebookTokenRepository facebookTokenRepository;
 	
 	@Autowired
-	private UserRepository facebookUserRepository;
+	private FacebookUserRepository facebookUserRepository;
 	
 	@Autowired
-	private ConversationRepository conversationRepository;
+	private FacebookConversationRepository conversationRepository;
 	
 	@Autowired
 	private IConnector connector;
