@@ -1,0 +1,20 @@
+    "nodes":[
+        {
+            "id":"1",
+            "name":"Diana"
+        },
+        {
+            "id":"2",
+            "name":"Adiucu"
+        }
+    ],
+    "edges":[
+        {
+            "id":"2to1",
+            "target":"1",
+            "source":"2",
+            "label":"20conversations"
+        }
+    ]
+
+}

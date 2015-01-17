@@ -45,7 +45,9 @@ public class Conversation {
 		}	
 		toList=new ArrayList<String>();
 		for(NamedFacebookType threadReceiver: thread.getTo()){
-			toList.add(threadReceiver.getId());
+			if(!this.ownerId.equals(threadReceiver.getId())) {
+				toList.add(threadReceiver.getId());
+			}
 		}
 	}
 	

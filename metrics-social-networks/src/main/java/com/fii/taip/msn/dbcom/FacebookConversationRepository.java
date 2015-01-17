@@ -11,6 +11,8 @@ public interface FacebookConversationRepository {
 	
 	List<Conversation> insert (FacebookUser owner, Connection<Thread> dtoList);
 	
+	List<Conversation> allConversations();
+	
 	List<Conversation> get(FacebookUser owner);
 	
 	List<Conversation> get(FacebookUser owner, FacebookUser participant);

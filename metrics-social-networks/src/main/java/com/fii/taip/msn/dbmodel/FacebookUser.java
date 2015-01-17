@@ -1,5 +1,7 @@
 package com.fii.taip.msn.dbmodel;
 
+import java.util.List;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.TypeAlias;
 
@@ -7,6 +9,17 @@ import com.restfb.types.User;
 
 @TypeAlias("FacebookUser")
 public class FacebookUser {
+	
+	public static FacebookUser isUserWithIdInList(String id, List<FacebookUser> users) {
+		FacebookUser userToReturn = null;
+		for (FacebookUser user : users) {
+			if(user.getId().equals(id)) {
+				userToReturn = user;
+				break;
+			}
+		}
+		return userToReturn;
+	}
 	/*
 	 * Composite pattern is used where we need to treat a group of objects in
 	 * similar way as a single object. Composite pattern composes objects in

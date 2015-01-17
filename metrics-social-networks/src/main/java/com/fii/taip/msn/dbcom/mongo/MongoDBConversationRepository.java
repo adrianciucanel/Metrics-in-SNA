@@ -5,7 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoOperations;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import com.fii.taip.msn.dbcom.FacebookConversationRepository;
 import com.fii.taip.msn.dbmodel.Conversation;
@@ -13,11 +13,11 @@ import com.fii.taip.msn.dbmodel.FacebookUser;
 import com.restfb.Connection;
 import com.restfb.types.Thread;
 
-@Component
+@Repository
 public class MongoDBConversationRepository implements FacebookConversationRepository {
 
 	@Autowired
-	private MongoOperations operation;
+	private MongoOperations operations;
 	
 	public List<Conversation> insert(FacebookUser owner,
 			Connection<Thread> dtoList) {
@@ -25,7 +25,7 @@ public class MongoDBConversationRepository implements FacebookConversationReposi
 		for (Thread thread : dtoList.getData()) {
 			conversations.add(new Conversation(thread, owner));
 		}
-		operation.insert(conversations, Conversation.class);
+		operations.insert(conversations, Conversation.class);
 		return conversations;
 	}
 
@@ -37,6 +37,10 @@ public class MongoDBConversationRepository implements FacebookConversationReposi
 	public List<Conversation> get(FacebookUser owner, FacebookUser participant) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	public List<Conversation> allConversations() {
+		return operations.findAll(Conversation.class);
 	}
 
 }

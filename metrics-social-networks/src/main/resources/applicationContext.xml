@@ -23,6 +23,7 @@
 	
 	<!-- Resource classes for JAXRS Server Factory Bean. -->
 	<bean id="status" class="com.fii.taip.msn.api.UserFacebookTokenApi"/>
+	<bean id="graph" class="com.fii.taip.msn.api.GraphFacebookAPI" />
 
 	<!-- Define CXF beans. -->
 	<bean class="org.apache.cxf.jaxrs.JAXRSServerFactoryBean"
@@ -32,6 +33,7 @@
 			<list>
 				<!-- resource classes -->
 				<ref bean="status"/>
+				<ref bean="graph"/>
 			</list>
 		</property>
 		<property name="providers">
