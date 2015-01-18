@@ -38,23 +38,23 @@ public class EdgeDTO {
 			return false;
 		}
 		EdgeDTO edge = (EdgeDTO)object;
-		return Objects.equals(this.target, edge.getFirstID()) && Objects.equals(this.source, edge.source);
+		return Objects.equals(this.target, edge.getTarget()) && Objects.equals(this.source, edge.source);
 	}
 
-	public String getFirstID() {
+	public String getTarget() {
 		return target;
 	}
 
-	public void setFirstID(String firstID) {
-		this.target = firstID;
+	public void setTarget(String target) {
+		this.target = target;
 	}
 
-	public String getSecondID() {
+	public String getSource() {
 		return source;
 	}
 
-	public void setSecondID(String secondID) {
-		this.source = secondID;
+	public void setSource(String source) {
+		this.source = source;
 	}
 
 	public String getLabel() {

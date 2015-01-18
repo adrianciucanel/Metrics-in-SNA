@@ -13,6 +13,10 @@ public class FacebookMessage {
 	private String message;
 	private Date createdTime;
 	
+	public FacebookMessage(){
+		
+	}
+	
 	public FacebookMessage(Message message){
 		this.ownerId = message.getFrom().getId();
 		this.message = message.getMessage();

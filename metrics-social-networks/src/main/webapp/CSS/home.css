@@ -1,0 +1,7 @@
+html, body { height: 100%; width: 100%; padding: 0; margin: 0; }
+#cytoscapeweb { width: 100%; height: 100%; }
+section { float: left; width: 70%; height: 100%}
+aside { float: right; width: 30%; height: 100%; background-color:#3A5795 }
+#usersList { margin: 14%; }
+h1   {color:white}
+h2   {color:white; margin:2%}	

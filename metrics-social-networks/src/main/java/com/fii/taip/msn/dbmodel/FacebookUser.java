@@ -33,6 +33,11 @@ public class FacebookUser {
 	private int age;
 	private String email;                              
 	private String gender;
+	
+	
+	public FacebookUser(){
+		
+	}
 
 	// constructor
 	public FacebookUser(User dto) {
