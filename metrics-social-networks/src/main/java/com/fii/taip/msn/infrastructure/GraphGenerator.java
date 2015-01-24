@@ -93,4 +93,22 @@ public class GraphGenerator {
 		}
 		return edgesList;
 	}
+
+	public FacebookUserRepository getUserRepository() {
+		return userRepository;
+	}
+
+	public void setUserRepository(FacebookUserRepository userRepository) {
+		this.userRepository = userRepository;
+	}
+
+	public FacebookConversationRepository getConversationRepository() {
+		return conversationRepository;
+	}
+
+	public void setConversationRepository(
+			FacebookConversationRepository conversationRepository) {
+		this.conversationRepository = conversationRepository;
+	}
+	
 }

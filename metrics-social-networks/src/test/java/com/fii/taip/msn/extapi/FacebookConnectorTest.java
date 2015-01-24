@@ -1,5 +1,7 @@
 package com.fii.taip.msn.extapi;
 
+import static org.junit.Assert.assertNotNull;
+
 import org.junit.Ignore;
 import org.junit.Test;
 
@@ -8,11 +10,13 @@ import com.restfb.types.Thread;
 import com.restfb.types.User;
 
 public class FacebookConnectorTest {
+	
 	@Ignore
 	@Test
 	public void expectUserDetails(){
 		IConnector connector = new FacebookConnector();
 	    User user = connector.GetUserDetails("CAAF1SxWe2EkBAMBhOQJhHHWk1ImHZBd3ZAIPHkRjmUqWE1mIj9VrgZB6hCtWqEaPqPrcgSmb7FOCONScQaFRt1adthFjj59COXIZAxTm1tgEVWtWmYVZAIdKJCE72NT0tql4TOShZCOYYPOwwYZA8o4eEwQXUlNavzgUl3IuX5TGX57uNJhkrTnofk4W6c1cAdwYvKWMtjQ54XM3T3PZC1W5oZAOIVWWHHFEZD");
+	    assertNotNull("Expected not null user.", user);
 	}
 	@Ignore
 	@Test

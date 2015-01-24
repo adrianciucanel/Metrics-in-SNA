@@ -23,7 +23,7 @@ public class EdgeDTO {
 	
 	@Override
 	public int hashCode() {
-		return Objects.hash(this.target, this.source);
+		return Objects.hash(this.target, this.source) + Objects.hash(this.source, this.target);
 	}
 	
 	@Override
@@ -32,13 +32,13 @@ public class EdgeDTO {
 			return true;
 		}
 		if (object == null) {
-			return true;
+			return false;
 		}
 		if (this.getClass() != object.getClass()) {
 			return false;
 		}
 		EdgeDTO edge = (EdgeDTO)object;
-		return Objects.equals(this.target, edge.getTarget()) && Objects.equals(this.source, edge.source);
+		return (Objects.equals(this.target, edge.getTarget()) && Objects.equals(this.source, edge.source)) || (Objects.equals(this.target, edge.getSource()) && Objects.equals(this.source, edge.getTarget()));
 	}
 
 	public String getTarget() {
